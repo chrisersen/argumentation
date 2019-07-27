@@ -1,5 +1,5 @@
 # argumentation.sty
-LaTeX package for argumentation theory (Toulmin etc). The aim of developing this package is to provide environment like the toulmin-environment to typeset argumentation schemes. E.g:
+LaTeX package for argumentation theory (Toulmin etc). The aim of developing this package is to provide an environment like the toulmin-environment to typeset argumentation schemes. E.g:
 ```{latex}
 \documentclass{article}
 \usepackage{argumentation}
