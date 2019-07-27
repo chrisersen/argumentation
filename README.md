@@ -16,6 +16,6 @@ LaTeX package for argumentation theory (Toulmin etc). The aim of developing this
 
 \end{document}
 ```
-[toulmin example](./docs/toulminexample.png)
+[toulmin example](./doc/toulminexample.png)
 
 I start deleloping with a regular tex-file. This will get transferred to a dtx file with documentation soon. It will *not* be stable until some time in 2020.
