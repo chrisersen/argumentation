@@ -45,59 +45,61 @@
 \newcommand\ArgumentTextBox[1]{\fboxrule=0pt\fbox{\parbox{\dimexpr(\linewidth-2\fboxsep-2\fboxrule)}{##1}}}
 \newcommand\ArgumentVertRule{\centering |\par}%
 }{
-	\ifdefstring{\ArgumentTextQualifier}{}{%%
-		\ifdefstring{\ArgumentTextRebuttal}{}{\ArgumentToulminQualifierRebuttalDefinedfalse}{\ArgumentToulminQualifierRebuttalDefinedtrue}%
-	}{\ArgumentToulminQualifierRebuttalDefinedtrue}%
+  \ifdefstring{\ArgumentTextQualifier}{}{%%
+    \ifdefstring{\ArgumentTextRebuttal}{}{\ArgumentToulminQualifierRebuttalDefinedfalse}{\ArgumentToulminQualifierRebuttalDefinedtrue}%
+  }{\ArgumentToulminQualifierRebuttalDefinedtrue}%
 
-	\ifArgumentToulminQualifierRebuttalDefined
-		\setlength\ArgumentCoffinWidthFact{\dimexpr(\linewidth)/4}
-		\setlength\ArgumentCoffinWidthWarrant{\dimexpr(\linewidth)/4}
-		\setlength\ArgumentCoffinWidthBacking{\dimexpr(\linewidth)/4}
-		\setlength\ArgumentCoffinWidthQualifier{\dimexpr(\linewidth)/4}
-		\setlength\ArgumentCoffinWidthRebuttal{\dimexpr(\linewidth)/4}
-		\setlength\ArgumentCoffinWidthMiddle{\dimexpr(\ArgumentCoffinWidthQualifier+\ArgumentCoffinWidthWarrant)}
-		\setlength\ArgumentCoffinWidthConclusion{\dimexpr(\linewidth)/4}
-	\else
-		\setlength\ArgumentCoffinWidthFact{\dimexpr(\linewidth)/3}
-		\setlength\ArgumentCoffinWidthWarrant{\dimexpr(\linewidth)/3}
-		\setlength\ArgumentCoffinWidthBacking{\dimexpr(\linewidth)/3}
-		\setlength\ArgumentCoffinWidthMiddle{\ArgumentCoffinWidthWarrant}
-		\setlength\ArgumentCoffinWidthConclusion{\dimexpr(\linewidth)/3}
-	\fi
+  \ifArgumentToulminQualifierRebuttalDefined
+    \setlength\ArgumentCoffinWidthFact{\dimexpr(\linewidth)/4}
+    \setlength\ArgumentCoffinWidthWarrant{\dimexpr(\linewidth)/4}
+    \setlength\ArgumentCoffinWidthBacking{\dimexpr(\linewidth)/4}
+    \setlength\ArgumentCoffinWidthQualifier{\dimexpr(\linewidth)/4}
+    \setlength\ArgumentCoffinWidthRebuttal{\dimexpr(\linewidth)/4}
+    \setlength\ArgumentCoffinWidthMiddle{\dimexpr(\ArgumentCoffinWidthQualifier+\ArgumentCoffinWidthWarrant)}
+    \setlength\ArgumentCoffinWidthConclusion{\dimexpr(\linewidth)/4}
+  \else
+    \setlength\ArgumentCoffinWidthFact{\dimexpr(\linewidth)/3}
+    \setlength\ArgumentCoffinWidthWarrant{\dimexpr(\linewidth)/3}
+    \setlength\ArgumentCoffinWidthBacking{\dimexpr(\linewidth)/3}
+    \setlength\ArgumentCoffinWidthMiddle{\ArgumentCoffinWidthWarrant}
+    \setlength\ArgumentCoffinWidthConclusion{\dimexpr(\linewidth)/3}
+  \fi
 
 
-\SetVerticalCoffin\ArgumentCoffinFact{\ArgumentCoffinWidthFact}%
+  \SetVerticalCoffin\ArgumentCoffinFact{\ArgumentCoffinWidthFact}%
   {\ArgumentTextBox{\ArgumentTextFact}\hfill}%
-\SetVerticalCoffin\ArgumentCoffinWarrant{\ArgumentCoffinWidthWarrant}%
+  \SetVerticalCoffin\ArgumentCoffinWarrant{\ArgumentCoffinWidthWarrant}%
   {\ArgumentVertRule \centering \ArgumentTextBox{\ArgumentTextWarrant}}%
-\SetVerticalCoffin\ArgumentCoffinBacking{\ArgumentCoffinWidthBacking}%
+  \SetVerticalCoffin\ArgumentCoffinBacking{\ArgumentCoffinWidthBacking}%
   {\centering \ArgumentTextBox{\ArgumentTextBacking}}%
-\SetVerticalCoffin\ArgumentCoffinQualifier{\ArgumentCoffinWidthQualifier} %
+  \ifArgumentToulminQualifierRebuttalDefined
+  \SetVerticalCoffin\ArgumentCoffinQualifier{\ArgumentCoffinWidthQualifier} %
   {\ArgumentVertRule\centering \ArgumentTextBox{\ArgumentTextQualifier}}%
-\SetVerticalCoffin\ArgumentCoffinRebuttal{\ArgumentCoffinWidthRebuttal}%
+  \SetVerticalCoffin\ArgumentCoffinRebuttal{\ArgumentCoffinWidthRebuttal}%
   {\centering \ArgumentTextBox{\ArgumentTextRebuttal}}%
-\SetVerticalCoffin\ArgumentCoffinConclusion {\ArgumentCoffinWidthConclusion}%
+  \fi
+  \SetVerticalCoffin\ArgumentCoffinConclusion {\ArgumentCoffinWidthConclusion}%
   {\hfill\ArgumentTextBox{\ArgumentTextConclusion}}%
-\SetVerticalCoffin\ArgumentCoffinMiddle{\ArgumentCoffinWidthMiddle}%
+  \SetVerticalCoffin\ArgumentCoffinMiddle{\ArgumentCoffinWidthMiddle}%
   {\setlength{\unitlength}{\linewidth}%
-	\begin{picture}(1,0)\put(0,0){\vector(1,0){1}}\end{picture}}%
+  \begin{picture}(1,0)\put(0,0){\vector(1,0){1}}\end{picture}}%
 
 
-	\ifArgumentToulminQualifierRebuttalDefined
-		\JoinCoffins\ArgumentCoffinFact[r,vc]\ArgumentCoffinMiddle[l,vc]
-		\JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinMiddle-r,vc]\ArgumentCoffinConclusion[l,vc]
-		\JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinMiddle-l,\ArgumentCoffinMiddle-b]\ArgumentCoffinWarrant[l,t]
-		\JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinWarrant-b,\ArgumentCoffinWarrant-hc]\ArgumentCoffinBacking[t,hc]
-		\JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinWarrant-r,\ArgumentCoffinWarrant-t]\ArgumentCoffinQualifier[l,t]
-		\JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinQualifier-b,\ArgumentCoffinQualifier-hc]\ArgumentCoffinRebuttal[t,hc]
-	\else
-		\JoinCoffins\ArgumentCoffinFact[r,vc]\ArgumentCoffinMiddle[l,vc]
-		\JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinMiddle-r,vc]\ArgumentCoffinConclusion[l,vc]
-		\JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinMiddle-l,\ArgumentCoffinMiddle-b]\ArgumentCoffinWarrant[l,t]
-		\JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinWarrant-b,\ArgumentCoffinWarrant-hc]\ArgumentCoffinBacking[t,hc]
-	\fi
+  \ifArgumentToulminQualifierRebuttalDefined
+    \JoinCoffins\ArgumentCoffinFact[r,vc]\ArgumentCoffinMiddle[l,vc]
+    \JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinMiddle-r,vc]\ArgumentCoffinConclusion[l,vc]
+    \JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinMiddle-l,\ArgumentCoffinMiddle-b]\ArgumentCoffinWarrant[l,t]
+    \JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinWarrant-b,\ArgumentCoffinWarrant-hc]\ArgumentCoffinBacking[t,hc]
+    \JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinWarrant-r,\ArgumentCoffinWarrant-t]\ArgumentCoffinQualifier[l,t]
+    \JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinQualifier-b,\ArgumentCoffinQualifier-hc]\ArgumentCoffinRebuttal[t,hc]
+  \else
+    \JoinCoffins\ArgumentCoffinFact[r,vc]\ArgumentCoffinMiddle[l,vc]
+    \JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinMiddle-r,vc]\ArgumentCoffinConclusion[l,vc]
+    \JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinMiddle-l,\ArgumentCoffinMiddle-b]\ArgumentCoffinWarrant[l,t]
+    \JoinCoffins\ArgumentCoffinFact[\ArgumentCoffinWarrant-b,\ArgumentCoffinWarrant-hc]\ArgumentCoffinBacking[t,hc]
+  \fi
 
 
-\TypesetCoffin\ArgumentCoffinFact
+  \TypesetCoffin\ArgumentCoffinFact
 
 }
