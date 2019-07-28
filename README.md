@@ -18,6 +18,9 @@ LaTeX package for argumentation theory (Toulmin etc). The aim of developing this
 ```
 ![toulmin example](./doc/test-0.png)
 
+If you are not using `\qualifier` and `\rebuttal`, the design is automatically
+changed:
+
 ```latex
 \begin{toulmin}
   \fact{fact}
