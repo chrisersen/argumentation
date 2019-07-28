@@ -16,6 +16,17 @@ LaTeX package for argumentation theory (Toulmin etc). The aim of developing this
 
 \end{document}
 ```
-![toulmin example](./doc/toulminexample.png)
+![toulmin example](./doc/test-0.png)
+
+```latex
+\begin{toulmin}
+  \fact{fact}
+  \warrant{warrant}
+  \backing{backing}
+  \conclusion{conclusion}
+\end{toulmin}
+```
+
+![toulmin example](./doc/test-1.png)
 
 I start deleloping with a regular tex-file. This will get transferred to a dtx file with documentation soon. It will *not* be stable until some time in 2020.
